@@ -16,8 +16,8 @@ import GoogleSearchList from "./GoogleSearchList";
  * hero, the sidebar, and the discussion list.
  */
 export default class GoogleSearchPage extends Page {
-  init() {
-    super.init();
+  oninit(vnode) {
+    super.oninit(vnode);
 
     const params = this.params();
     this.bodyClass = "App--index";
@@ -52,7 +52,7 @@ export default class GoogleSearchPage extends Page {
       return true;
     }
   }
-
+  
   onunload() {
     // Save the scroll position so we can restore it when we return to the
     // result list.

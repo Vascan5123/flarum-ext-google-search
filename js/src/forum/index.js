@@ -34,12 +34,10 @@ app.initializers.add("irony-google-search", app => {
       <li>
         {LinkButton.component({
           icon: "fas fa-search",
-          children: app.translator.trans(
-            "irony-google-search.forum.search.all_search_button",
-            { query }
-          ),
           href: app.route("irony_google_search", { q: query })
-        })}
+        },
+        app.translator.trans('irony-google-search.forum.search.all_search_button', { query })
+        )}
       </li>
     );
   });
@@ -50,9 +48,10 @@ app.initializers.add("irony-google-search", app => {
       "irony-google-search",
       LinkButton.component({
         href: app.route("irony_google_search"),
-        children: app.translator.trans("irony-google-search.forum.page.nav"),
         icon: "fab fa-google"
-      }),
+      },
+      app.translator.trans('irony-google-search.forum.page.nav')
+      ),
       85
     );
   });
