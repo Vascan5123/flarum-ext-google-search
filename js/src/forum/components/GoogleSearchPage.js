@@ -1,3 +1,4 @@
+
 import { extend } from "flarum/extend";
 import app from "flarum/app";
 import Page from "flarum/components/Page";
@@ -16,8 +17,8 @@ import GoogleSearchList from "./GoogleSearchList";
  * hero, the sidebar, and the discussion list.
  */
 export default class GoogleSearchPage extends Page {
-  oninit(vnode) {
-    super.oninit(vnode);
+  init() {
+    super.init();
 
     const params = this.params();
     this.bodyClass = "App--index";
@@ -52,7 +53,7 @@ export default class GoogleSearchPage extends Page {
       return true;
     }
   }
-  
+
   onunload() {
     // Save the scroll position so we can restore it when we return to the
     // result list.
@@ -65,7 +66,7 @@ export default class GoogleSearchPage extends Page {
         {IndexPage.prototype.hero()}
         <div className="container">
           <div className="sideNavContainer">
-            <nav className="IndexPage-nav sideNav">
+            <nav className="IndexPage-nav sideNav openMenu_class">
               <ul>{listItems(this.sidebarItems().toArray())}</ul>
             </nav>
             <div className="IndexPage-results sideNavOffset">
@@ -117,13 +118,11 @@ export default class GoogleSearchPage extends Page {
     app.alerts.show(
       (alert = new Alert({
         type: "error",
-        children: app.translator.trans(
-          "irony-google-search.forum.page.notice_text"
-        )
-      }))
+      },
+        app.translator.trans('irony-google-search.forum.page.notice_text')))
     );
     // 5秒后自动关闭
-    setTimeout(function() {
+    setTimeout(function () {
       app.alerts.dismiss(alert);
     }, 3000);
   }
@@ -141,10 +140,11 @@ export default class GoogleSearchPage extends Page {
     items.replace(
       "nav",
       SelectDropdown.component({
-        children: this.navItems(this).toArray(),
         buttonClassName: "Button",
         className: "App-titleControl"
-      })
+      },
+        this.navItems(this).toArray()
+      )
     );
 
     return items;
@@ -164,9 +164,10 @@ export default class GoogleSearchPage extends Page {
       "irony-google-search",
       LinkButton.component({
         href: app.route("irony_google_search", params),
-        children: app.translator.trans("irony-google-search.forum.page.nav"),
         icon: "fab fa-google"
-      }),
+      },
+        app.translator.trans('irony-google-search.forum.page.nav')
+      ),
       85
     );
 

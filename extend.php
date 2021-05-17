@@ -8,6 +8,7 @@ return [
     (new Extend\Frontend('forum'))
         ->js(__DIR__ . '/js/dist/forum.js')
         ->css(__DIR__ . '/resources/less/forum.less')
+        /* ->route('/google', 'irony_google_search', Content\GoogleSearch::class), */
         ->route('/google', 'irony_google_search', Content\GoogleSearch::class),
     (new Extend\Routes('api'))
         ->get('/google/search', 'irony_google_search_api', Content\GoogleSearchApi::class)

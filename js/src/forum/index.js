@@ -8,12 +8,15 @@ import GoogleSearchPage from "./components/GoogleSearchPage";
 // Allow other extensions to extend the page
 export { GoogleSearchPage };
 
-app.initializers.add("irony-google-search", app => {
+app.initializers.add("irony/flarum-ext-google-search", app => {
   // 扩展路由到指定页面
-  app.routes.irony_google_search = {
+  app.routes['irony_google_search'] = { path: '/google', component: GoogleSearchPage };
+
+
+  /* app.routes.irony_google_search = {
     path: "/google",
-    component: GoogleSearchPage.component()
-  };
+    component: GoogleSearchPage2.component()
+  }; */
 
   // 增加搜索框扩展显示
   extend(DiscussionsSearchSource.prototype, "view", function(view, query) {
