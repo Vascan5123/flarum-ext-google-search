@@ -1,5 +1,5 @@
 {
-    "name": "irony/flarum-ext-google-search",
+    "name": "vascan5123/flarum-ext-google-search",
     "description": "Google Search, use url /google to view",
     "keywords": [
         "extension",
@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "flarum/core": "^0.1.0-beta.10"
+        "flarum/core": "^0.1.0-beta.16"
     },
     "support": {
         "issues": "https://github.com/892768447/flarum-ext-google-search/issues",

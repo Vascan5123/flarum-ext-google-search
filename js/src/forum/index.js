@@ -8,7 +8,7 @@ import GoogleSearchPage from "./components/GoogleSearchPage";
 // Allow other extensions to extend the page
 export { GoogleSearchPage };
 
-app.initializers.add("irony/flarum-ext-google-search", app => {
+app.initializers.add("vascan5123/flarum-ext-google-search", app => {
   // 扩展路由到指定页面
   app.routes['irony_google_search'] = { path: '/google', component: GoogleSearchPage };
 
